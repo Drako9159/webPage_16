@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
+import paquets from "./components/paquets.vue";
 </script>
 <template>
   <div id="main-container">
@@ -32,12 +33,15 @@ import HelloWorld from "./components/HelloWorld.vue";
         </ul>
       </nav>
     </header>
-    <section id="banner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <section id="center">
+      <div id="banner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </section>
   </div>
 
@@ -59,8 +63,8 @@ import HelloWorld from "./components/HelloWorld.vue";
       </nav>
     </div>
   </header>-->
-  <!--
- <RouterView /> -->
+
+  <RouterView />
 </template>
 <style>
 @import "../src/assets/styles/app.css";

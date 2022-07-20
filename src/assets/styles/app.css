@@ -57,6 +57,7 @@ nav .mobile {
   width: 100%;
 }
 nav .mobile .header {
+  min-width: 240px;
   display: flex;
   text-align: center;
   justify-content: space-between;
@@ -64,16 +65,18 @@ nav .mobile .header {
   background-color: rgb(255, 255, 255);
 }
 nav .mobile .header .logs {
+  margin: 1vh;
   width: 120px;
 }
 nav .mobile .header .logs1 {
-  padding: 10px 10px 0px 0px;
+  margin: 2vh;
 
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 nav .mobile .header #bmenu {
   border: none;
+  margin: 1vh;
   background-color: transparent;
   cursor: pointer;
   color: grey;
@@ -82,6 +85,7 @@ nav .mobile .links {
   display: none;
   flex-direction: column;
   position: relative;
+  top: -5px;
   z-index: 200;
   background-color: black;
 }
@@ -100,12 +104,25 @@ nav .mobile .links a:hover {
   color: white;
 }
 /*banner*/
-#banner{
+#center{
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 50vh;
+  background-color: purple;
+  
+  position: absolute;
+  z-index: 100;
+  top: 4rem;
+  min-width: 240px;
+}
+#banner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80vw;
   background-color: red;
+  min-width: 240px;
 }
 #banner div{
   margin: 10px;
@@ -114,7 +131,6 @@ nav .mobile .links a:hover {
   width: 200px;
   height: 200px;
 }
-
 
 @media screen and (max-width: 701px) {
   nav .mobile {
@@ -127,4 +143,20 @@ nav .mobile .links a:hover {
   nav ul {
     display: none;
   }
+  #banner{
+    width: 90vw;
+    background-color: red;
+ 
+  }
+  
+  #banner div{
+    margin: 10px;
+    background-color: aqua;
+    border-radius: 1rem;
+    width: 150px;
+    height: 150px;
+  }
+  
+  
+  
 }
