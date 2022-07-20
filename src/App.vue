@@ -2,9 +2,29 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 </script>
-
 <template>
-  <header>
+  <div id="main-container">
+    <header>
+      <nav>
+        <div class="mobile">
+        </div>
+        <ul>
+          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link">Saludos</a></li>
+          
+        </ul>
+  
+          
+            
+            
+      </nav>
+    </header>
+  </div>
+
+  <!-- <header> 
     <img
       alt="Vue logo"
       class="logo"
@@ -22,71 +42,62 @@ import HelloWorld from "./components/HelloWorld.vue";
         <RouterLink to="/table">table</RouterLink>
       </nav>
     </div>
-  </header>
-
-  <RouterView />
+  </header>-->
+  <!--
+ <RouterView /> -->
 </template>
-
-<style scoped>
-header {
+<style>
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
   line-height: 1.5;
-  max-height: 100vh;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
+/* navbar */
 nav {
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  background-color: blue;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+  
+}
+nav ul li > a{
+  display: block;
+  position: relative;
+  padding: 20px 15px 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+nav ul li .link::before{
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  height: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  background-color: red;
+}
+nav ul li .link:hover::before{
+    transform: scaleX(1);
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+@media screen and (max-width: 701px){
+  nav{
+    width: 100%;
+    padding: 0;
   }
 }
 </style>
