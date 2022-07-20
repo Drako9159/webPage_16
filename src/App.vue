@@ -9,10 +9,10 @@ import HelloWorld from "./components/HelloWorld.vue";
         <div class="mobile">
           <div class="header">
             <button id="bmenu">
-              <a href="#"><img src="../src/assets/icons8-menú-30.png"/></a>
+              <a href="#"><img src="../src/assets/icons8-menú-30.png" /></a>
             </button>
-            <img class="logs" src="../src/assets/logs.png"/>
-            <img class="logs1" src="../src/assets/user.png"/>
+            <img class="logs" src="../src/assets/logs.png" />
+            <img class="logs1" src="../src/assets/user.png" />
           </div>
           <div class="links">
             <a href="#">game pass</a>
@@ -27,12 +27,7 @@ import HelloWorld from "./components/HelloWorld.vue";
           <li><a href="" class="link">Saludos</a></li>
           <li><a href="" class="link">Saludos</a></li>
           <li><a href="" class="link">Saludos</a></li>
-          
         </ul>
-  
-          
-            
-            
       </nav>
     </header>
   </div>
@@ -60,9 +55,9 @@ import HelloWorld from "./components/HelloWorld.vue";
 </template>
 <style>
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@font-face{
+@font-face {
   font-family: monste;
-  src: url('../src/assets/montserrat/Montserrat-Medium.otf');
+  src: url("../src/assets/montserrat/Montserrat-Medium.otf");
 }
 body {
   font-family: monste;
@@ -71,7 +66,9 @@ body {
   margin: 0;
   line-height: 1.5;
 }
-
+.show {
+  display: flex !important;
+}
 /* navbar */
 nav {
   display: flex;
@@ -79,23 +76,22 @@ nav {
   padding: 0 5%;
   background-color: blue;
 }
-nav ul{
+nav ul {
   display: flex;
   list-style: none;
 
   padding: 0;
   margin: 0;
-  
 }
-nav ul li > a{
+nav ul li > a {
   display: block;
   position: relative;
   padding: 20px 15px 10px 15px;
   text-decoration: none;
   color: black;
 }
-nav ul li .link::before{
-  content: '';
+nav ul li .link::before {
+  content: "";
   position: absolute;
   display: block;
   left: 0;
@@ -106,66 +102,79 @@ nav ul li .link::before{
   transition: transform 0.3s ease;
   background-color: red;
 }
-nav ul li .link:hover::before{
-    transform: scaleX(1);
+nav ul li .link:hover::before {
+  transform: scaleX(1);
 }
-nav .mobile{
+nav .mobile {
   display: none;
   width: 100%;
 }
-nav .mobile .header{
+nav .mobile .header {
   display: flex;
   text-align: center;
   justify-content: space-between;
   flex-direction: row;
   background-color: red;
 }
-nav .mobile .header .logs{
+nav .mobile .header .logs {
   width: 120px;
-
 }
-nav .mobile .header .logs1{
+nav .mobile .header .logs1 {
   padding: 10px 10px 0px 0px;
-  
+
   width: 40px;
   height: 40px;
 }
-nav .mobile .header #bmenu{
+nav .mobile .header #bmenu {
   border: none;
+  background-color: transparent;
   cursor: pointer;
   color: grey;
 }
-nav .mobile .links{
+nav .mobile .links {
   display: none;
   flex-direction: column;
   position: relative;
   z-index: 200;
   background-color: black;
 }
-nav .mobile .links{
+nav .mobile .links a {
   font-size: 20px;
   display: block;
   padding: 10px 20px;
   text-decoration: none;
   color: white;
 }
-nav .mobile .links a:hover{
+nav .mobile .links a:hover {
   font-size: 20px;
   display: block;
   padding: 10px 20px;
   text-decoration: none;
   color: white;
 }
-@media screen and (max-width: 701px){
-  nav .mobile{
+@media screen and (max-width: 701px) {
+  nav .mobile {
     display: block;
   }
-  nav{
+  nav {
     width: 100%;
     padding: 0;
   }
-  nav ul{
+  nav ul {
     display: none;
   }
 }
 </style>
+<script>
+export default {
+  data: () => ({}),
+  mounted() {
+    const bShowMobileLinks = document.querySelector("#bmenu");
+    const mobileMenu = document.querySelector(".links");
+    bShowMobileLinks.addEventListener("click", (e) => {
+      e.preventDefault();
+      mobileMenu.classList.toggle("show");
+    });
+  },
+};
+</script>
