@@ -15,21 +15,30 @@ import HelloWorld from "./components/HelloWorld.vue";
             <img class="logs1" src="../src/assets/user.png" />
           </div>
           <div class="links">
-            <a href="#">game pass</a>
+            <h3>¡Contata ya!</h3>
+            <a href="#">200</a>
             <a href="#">game pass</a>
             <a href="#">game pass</a>
             <a href="#">game pass</a>
           </div>
         </div>
         <ul>
+          <li><img class="logs" src="../src/assets/logs.png" /></li>
+          <li><a href="" class="link">Paquetes</a></li>
+          <li><a href="" class="link">Comentarios</a></li>
+          <li><a href="" class="link">Mejoras</a></li>
           <li><a href="" class="link">Saludos</a></li>
-          <li><a href="" class="link">Saludos</a></li>
-          <li><a href="" class="link">Saludos</a></li>
-          <li><a href="" class="link">Saludos</a></li>
-          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link"></a></li>
         </ul>
       </nav>
     </header>
+    <section id="banner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
   </div>
 
   <!-- <header> 
@@ -54,116 +63,7 @@ import HelloWorld from "./components/HelloWorld.vue";
  <RouterView /> -->
 </template>
 <style>
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@font-face {
-  font-family: monste;
-  src: url("../src/assets/montserrat/Montserrat-Medium.otf");
-}
-body {
-  font-family: monste;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-  line-height: 1.5;
-}
-.show {
-  display: flex !important;
-}
-/* navbar */
-nav {
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
-  background-color: blue;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-
-  padding: 0;
-  margin: 0;
-}
-nav ul li > a {
-  display: block;
-  position: relative;
-  padding: 20px 15px 10px 15px;
-  text-decoration: none;
-  color: black;
-}
-nav ul li .link::before {
-  content: "";
-  position: absolute;
-  display: block;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  background-color: red;
-}
-nav ul li .link:hover::before {
-  transform: scaleX(1);
-}
-nav .mobile {
-  display: none;
-  width: 100%;
-}
-nav .mobile .header {
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-  flex-direction: row;
-  background-color: red;
-}
-nav .mobile .header .logs {
-  width: 120px;
-}
-nav .mobile .header .logs1 {
-  padding: 10px 10px 0px 0px;
-
-  width: 40px;
-  height: 40px;
-}
-nav .mobile .header #bmenu {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  color: grey;
-}
-nav .mobile .links {
-  display: none;
-  flex-direction: column;
-  position: relative;
-  z-index: 200;
-  background-color: black;
-}
-nav .mobile .links a {
-  font-size: 20px;
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white;
-}
-nav .mobile .links a:hover {
-  font-size: 20px;
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white;
-}
-@media screen and (max-width: 701px) {
-  nav .mobile {
-    display: block;
-  }
-  nav {
-    width: 100%;
-    padding: 0;
-  }
-  nav ul {
-    display: none;
-  }
-}
+@import "../src/assets/styles/app.css";
 </style>
 <script>
 export default {
