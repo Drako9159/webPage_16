@@ -1,17 +1,15 @@
-
-
 <template>
   <section id="center">
     <div id="banner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div><p>200$</p></div>
+      <div><p>200$</p></div>
+      <div><p>200$</p></div>
+      <div><p>200$</p></div>
+      <div><p>200$</p></div>
+      <div><p>200$</p></div>
     </div>
   </section>
 </template>
 <style>
-@import "../assets/styles/app.css";
+@import "../assets/styles/paquets.css";
 </style>
