@@ -1,7 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-
-import Paquets from "./components/paquets.vue";
 </script>
 <template>
   <div id="main-container">
@@ -16,24 +14,22 @@ import Paquets from "./components/paquets.vue";
             <img class="logs1" src="../src/assets/user.png" />
           </div>
           <div class="links">
-            <h3>¡Contata ya!</h3>
-            <a href="#">200</a>
-            <a href="#">game pass</a>
-            <a href="#">game pass</a>
-            <a href="#">game pass</a>
+            <li><RouterLink class="to" to="/">Paquetes</RouterLink></li>
+            <li><RouterLink class="to" to="/cobertura">Cobertura</RouterLink></li>
           </div>
         </div>
         <ul>
           <li><img class="logs" src="../src/assets/logs.png" /></li>
-          <li><a href="" class="link">Paquetes</a></li>
+          <li><RouterLink v-on:click="close()" class="link" to="/">Paquetes</RouterLink></li>
+          <li><RouterLink v-on:click="close()" class="link" to="/cobertura">Cobertura</RouterLink></li>
           <li><a href="" class="link">Comentarios</a></li>
-          <li><a href="" class="link">Mejoras</a></li>
-          <li><a href="" class="link">Saludos</a></li>
+          <li><a href="" class="link">Más</a></li>
+          <li><a href="" class="link">¿Quiénes somos?</a></li>
           <li><a href="" class="link"></a></li>
         </ul>
       </nav>
     </header>
-    <Paquets />
+    <RouterView/>
   </div>
 
   <!-- <header> 
@@ -69,6 +65,15 @@ body {
 }
 .show {
   display: flex !important;
+  animation-name: show;
+  animation-duration: 0.5s;
+}
+.showNone{
+  display: none;
+}
+@keyframes show {
+  0%{ opacity: 0;};
+  100%{ opacity: 1};
 }
 /* navbar */
 nav {
@@ -84,6 +89,13 @@ nav ul {
   margin: 0;
 }
 nav ul li > a {
+  display: block;
+  position: relative;
+  padding: 20px 15px 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+nav ul li > RouterLink {
   display: block;
   position: relative;
   padding: 20px 15px 10px 15px;
@@ -145,20 +157,34 @@ nav .mobile .links {
   top: -5px;
   z-index: 200;
   background-color: black;
+  min-width: 240px;
 }
-nav .mobile .links a {
-  font-size: 20px;
+nav .mobile .links .to {
   display: block;
-  padding: 10px 20px;
+  font-size: 20px;
+  padding: 10px 10px 10px 45px;
   text-decoration: none;
   color: white;
+  z-index: 100;
 }
-nav .mobile .links a:hover {
-  font-size: 20px;
+nav .mobile .links .to::before{
+  content: "";
+  position: absolute;
   display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  background-color: red;
+}
+nav .mobile .links .to:hover::before {
+  cursor: pointer;
+  transform: scaleX(1);
+}
+nav .mobile .links .to:hover {
+  background-color: red;
 }
 @media screen and (max-width: 701px) {
   nav .mobile {
@@ -171,14 +197,20 @@ nav .mobile .links a:hover {
   nav ul {
     display: none;
   }
-  
-
 }
 </style>
 <script>
 export default {
   data: () => ({}),
+  methods: {
+      close(){
+      const close = document.getElementById("links");
+      close.classList.toggle("showNone");
+    }
+
+  },
   mounted() {
+    
     const bShowMobileLinks = document.querySelector("#bmenu");
     const mobileMenu = document.querySelector(".links");
     bShowMobileLinks.addEventListener("click", (e) => {

@@ -10,6 +10,6 @@
     </div>
   </section>
 </template>
-<style>
+<style scoped>
 @import "../assets/styles/paquets.css";
 </style>
