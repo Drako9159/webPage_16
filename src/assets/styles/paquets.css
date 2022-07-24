@@ -5,7 +5,6 @@
   justify-content: center;
   width: 100vw;
   background-color: purple;
-  
   position: absolute;
   z-index: 100;
   top: 4rem;
@@ -57,11 +56,9 @@
 
 
 @media screen and (max-width: 701px) {
-  
   #banner{
     width: 90vw;
     background-color: red;
- 
   }
   
   #banner div{
