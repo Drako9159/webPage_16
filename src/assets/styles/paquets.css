@@ -7,7 +7,7 @@
   background-color: purple;
   position: absolute;
   z-index: 100;
-  top: 4rem;
+  top: 65px;
   min-width: 240px;
 }
 #banner{
@@ -52,15 +52,11 @@
   90%{ width: 210px; }
   100%{ width: 200px; }
 }
-
-
-
 @media screen and (max-width: 701px) {
   #banner{
     width: 90vw;
     background-color: red;
   }
-  
   #banner div{
     margin: 10px;
     background-color: aqua;
@@ -76,8 +72,4 @@
     top: 7rem;
     background-color: blue;
   }
-  
-  
-  
-  
 }

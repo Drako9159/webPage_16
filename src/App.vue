@@ -14,8 +14,8 @@ import { RouterLink, RouterView } from "vue-router";
             <img class="logs1" src="../src/assets/user.png" />
           </div>
           <div class="links">
-            <li><RouterLink class="to" to="/">Paquetes</RouterLink></li>
-            <li><RouterLink class="to" to="/cobertura">Cobertura</RouterLink></li>
+            <li><RouterLink class="to" id="to0" to="/">Paquetes</RouterLink></li>
+            <li><RouterLink class="to" id="to1" to="/cobertura">Cobertura</RouterLink></li>
           </div>
         </div>
         <ul>
@@ -64,16 +64,9 @@ body {
   line-height: 1.5;
 }
 .show {
-  display: flex !important;
-  animation-name: show;
-  animation-duration: 0.5s;
-}
-.showNone{
-  display: none;
-}
-@keyframes show {
-  0%{ opacity: 0;};
-  100%{ opacity: 1};
+  opacity: 1 !important;
+  z-index: 250 !important;
+  transition: opacity 1s ease !important;
 }
 /* navbar */
 nav {
@@ -139,7 +132,6 @@ nav .mobile .header .logs {
 }
 nav .mobile .header .logs1 {
   margin: 2vh;
-
   width: 35px;
   height: 35px;
 }
@@ -151,11 +143,12 @@ nav .mobile .header #bmenu {
   color: grey;
 }
 nav .mobile .links {
-  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
   flex-direction: column;
   position: relative;
   top: -5px;
-  z-index: 200;
+  z-index: 100;
   background-color: black;
   min-width: 240px;
 }
@@ -179,6 +172,8 @@ nav .mobile .links .to::before{
   transition: transform 0.3s ease;
   background-color: red;
 }
+
+
 nav .mobile .links .to:hover::before {
   cursor: pointer;
   transform: scaleX(1);
@@ -186,6 +181,8 @@ nav .mobile .links .to:hover::before {
 nav .mobile .links .to:hover {
   background-color: red;
 }
+
+
 @media screen and (max-width: 701px) {
   nav .mobile {
     display: block;
@@ -197,25 +194,32 @@ nav .mobile .links .to:hover {
   nav ul {
     display: none;
   }
+  
+
 }
 </style>
 <script>
 export default {
   data: () => ({}),
-  methods: {
-      close(){
-      const close = document.getElementById("links");
-      close.classList.toggle("showNone");
-    }
-
-  },
+  methods: {},
   mounted() {
+    const $bShowMobileLinks = document.querySelector("#bmenu");
+    const $mobileMenu = document.querySelector(".links");
+    const $bNotShow0 = document.querySelector("#to0");
+    const $bNotShow1 = document.querySelector("#to1");
     
-    const bShowMobileLinks = document.querySelector("#bmenu");
-    const mobileMenu = document.querySelector(".links");
-    bShowMobileLinks.addEventListener("click", (e) => {
+    
+    $bShowMobileLinks.addEventListener("click", (e) => {
       e.preventDefault();
-      mobileMenu.classList.toggle("show");
+      $mobileMenu.classList.toggle("show");
+    });
+    $bNotShow0.addEventListener("click", (e) => {
+      e.preventDefault();
+      $mobileMenu.className = "links";
+    });
+    $bNotShow1.addEventListener("click", (e) => {
+      e.preventDefault();
+      $mobileMenu.className = "links";
     });
   },
 };
